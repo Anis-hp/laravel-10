@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/' , function(){
     // fetch all users
-    $users = DB::select('select * from users');
+    // $users = DB::select('select * from users');
+    $users = DB::table('users')->where('id')->get();
+
 
     // create new user
     // $user = DB::insert('insert into users (name, email, password) values (?,?,?)',[
