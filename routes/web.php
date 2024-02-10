@@ -1,7 +1,7 @@
 <?php
+namespace App\Models;
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/' , function(){
     // fetch all users
     // $users = DB::select('select * from users');
-    $users = DB::table('users')->where('id')->get();
+    // $users = DB::table('users')->where('id')->get();
 
 
     // create new user
@@ -28,7 +28,18 @@ Route::get('/' , function(){
     //     'webhp.co@gmail.com',
     //     '@1234567890@'
     // ]);
-
+    // create new user
+    // $user = DB::table('users')->insert([
+    //     'name' => 'anis',
+    //     'email' => 'webhp2.co@gmail.com',
+    //     'password' => '@1234567890@'
+    // ]);
+        // create new user
+    $user = User::create([
+        'name' => 'anis',
+        'email' => 'webhp3.co@gmail.com',
+        'password' => bcrypt('@1234567890@'),
+    ]);
     // user update
     // $userupdate = DB::update("update users set email=? where id=?",[
     //     'anishp13851@gmail.com' , 
@@ -39,7 +50,7 @@ Route::get('/' , function(){
     // $userdelete = DB::delete('delete from user where id=?',[
     //     '5'
     // ]);
-    dd($users);
+    dd($user);
 });
 
 Route::get('/dashboard', function () {
